@@ -1,0 +1,25 @@
+h1{
+padding-left:100;
+color:#0000A0;
+font-family:sans-serif;
+font-size:30px;}
+
+p{
+	font-family:poppins;
+	padding-left:150;
+	padding-right:150;
+}
+
+#pul{
+	padding-left:150;
+	padding-right:150;
+}
+
+hr{
+	margin-left:350;
+	margin-right:350;
+	margin-top:50;
+	margin-bottom:50;
+	height:2px;
+	background:#0000A0;
+}

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="mycssc.css">
+        <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic&display=swap" rel="stylesheet">
+        <script src="myscript.js"></script>
+        <script>
+            function colorchange1(){
+    document.getElementById("mydiv").style.backgroundColor = "rgb(20, 20, 87)";
+}
+function colorchange2(){
+    document.getElementById("mydiv").style.backgroundColor = "red";
+}
+function signup(){
+    window.location.href = "signup";
+}
+        </script>
+        <style>
+            *{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+#main{
+    background-image: url(https://i.ibb.co/KmCCY1M/myimage.png);
+    width: 100%;
+    height: 84vh;
+
+}
+
+.logo{
+    color: rgb(20, 20, 87);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 4px;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    left: 142px;
+    top: 20px;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(196, 129, 129);
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    height:76px;
+    width: 100%;
+}
+nav img{
+    position: absolute;
+    top:12px;
+    left: 50px;
+    width: 70px;
+    height: 55px;
+}
+.navlinks{
+    display: flex;
+    position: absolute;
+    right: 5%;
+    justify-content: space-around;
+    width:54%;
+}
+.navlinks li{
+    list-style: none;
+}
+.navlinks a{
+    text-decoration: none;
+    letter-spacing: 1px;
+    font-weigh: bold;
+}
+.block{
+    background-color: red;
+    position: absolute;
+    right:4%;
+    border-radius: 8px;
+}
+
+.block h5{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom:5px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.nav1{
+    color: white;
+}
+.nav1:hover{
+    color: rgb(20, 20, 87);
+}
+.nav2{
+    color: rgb(20, 20, 87);
+    padding-left:20px;
+    padding-right:180px;
+}
+.nav2:hover{
+    color: white;
+}
+
+
+.div2{
+    float: left;
+    opacity: 1;
+    justify-content: space-around;
+    border: 1px solid rgb(20, 20, 87);
+    border-block-color: rgb(20, 20, 87); 
+    width: 20%;
+    height: 150px;
+    margin-top: 2%;
+    margin-left: 4%;
+    margin-bottom: 4%; 
+    border-radius: 10px;
+}
+.div2 img{
+    padding-top:10px;
+    padding-left:90px;
+    width: 70%;
+    height:80%;
+}
+h3{
+    color: rgb(20, 20, 87);
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 0px;
+}
+
+.div3{
+    float: left;
+    background-size: 430px, 150px;
+    opacity: 1;
+    justify-content: space-around;
+    border: 1px solid rgb(20, 20, 87);
+    border-block-color: rgb(20, 20, 87); 
+    display: flex;
+    height: 250px;
+    width: 28%;
+    margin-top: 2%;
+    margin-left: 4%;
+    justify-content: center;
+    margin-bottom: 10%; 
+    border-radius: 10px;
+}
+.div3 h4{
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 1px;
+    text-align: center;
+    padding-left:100px;
+    padding-right:40px;
+    padding:10px;
+    padding-top: 170px;
+    color: white;
+}
+
+.heading{
+    color:  rgb(20, 20, 87);
+    font-family: 'Nanum Gothic', sans-serif;
+    letter-spacing: 0px;
+    margin-left:4%;
+    padding-top:2%;
+}
+
+.lower{
+    background-color : rgba(22, 22, 22, 0.267); 
+    height: 310px;
+    width: 100%;
+    opacity: 0.5;
+}
+.lower1{
+    background-color : rgba(95, 95, 95, 0.267); 
+    height: 300px;
+    width: 100%;
+    opacity: 0.5;
+    margin-top: 6%;
+
+}
+
+.lower2{
+    margin-top:0%;
+    background-color: rgb(95, 91, 91);
+    height:50px;
+}
+.lower2 h5{
+    padding-left: 10%;
+    padding-top: 15px;
+    color: white;
+    font-family: sans-serif;  
+}
+        </style>
+        <title>E-BANK</title>
+    </head>
+
+    <body>
+        <div id="main">         
+            <nav>
+                <img src = https://i.ibb.co/KzBhsg8/logo.png>
+                <div class="logo">
+                    <h3>E - BANKING</h3>
+                </div>
+                <ul class="navlinks">
+                    <li ><a href="aboutus" class="nav1">ABOUT US</a></li>
+                    <li ><a href="products" class="nav1">PRODUCTS</a></li>
+                    <li ><a href="onlineservices" class="nav1">ONLINE SERVICES</a></li>
+                    <li ><a href="payments" class="nav1">MAKE PAYMENTS</a></li>
+                    <li ><a href="signin" class="nav2"><b>Sign in</b></a></li>                    
+                </ul>
+                <div id="mydiv" class="block" onmouseover="colorchange1()" onmouseout="colorchange2()" onclick="signup()"><h5>Create new account</h5></div>
+            </nav>
+        </div>
+        <h1 class="heading">OUR OFFERINGS</h1>
+        <div class="div2" >
+            <img src="https://i.ibb.co/LCrPjF9/creditcard.png">
+            <h3 style="padding-left:103px;">Credit card</h3>    
+        </div>
+        <div class="div2" >
+            <img src="https://i.ibb.co/khzy3Sm/loan.png">
+            <h3 style="padding-left:95px;">Personal Loan</h3> 
+        </div>
+        <div class="div2">
+            <img src="https://i.ibb.co/TwsHsm6/saving-accout.png">
+            <h3 style="padding-left:92px;">Saving account</h3> 
+        </div>
+        <div class="div2">
+            <img src="https://i.ibb.co/WPFQSPD/mutual-fund.png">
+            <h3 style="padding-left:100px;">mutual fund</h3> 
+        </div>
+        <h1 class="heading">Deals That Will Interest You</h1>
+        <div class="div3" style="background-image: url(https://i.ibb.co/CWksVfc/food.jpg)">
+            <h4>50% DISCOUNT ON YOUR FIRST FOOD ORDER</h4>    
+        </div>
+        <div class="div3" style="background-image: url(https://i.ibb.co/rHFvF9b/hotel.jpg)">
+            <h4>10% DISCOUNT UPTO 200O ON DOMESTIC HOTELS</h4>
+        </div>
+        <div class="div3" style="background-image: url(https://i.ibb.co/w6JHdfW/travel.jpg);">
+            <h4>10% DISCOUNT ON TRAVEL AND TOURISM</h4>
+        </div>
+        <div class="lower">
+        </div>
+        <div class="lower1">
+            <table>
+                <tr>
+                    <th style="text-align: left; width:30%; padding-left:150px;">CONTACT US</th>
+                    <th style="text-align: left; width:30%; padding-left:160px;">CORPORATE ADDRESS</th>
+                    <th style="text-align: left; width:30%; padding-left:100px;"> CONNECT WITH US ON</th>
+                </tr>
+                <tr>
+                    <td style="padding-left:150px">Phone: 0244-458962</td>
+                    <td style="padding-left:160px">ABC Building,</td>
+                    <td rowspan="5"><img src="https://i.ibb.co/r4Nqbfy/social.png" style="padding-right:100px; float:right; width:80%;"></td>
+                </tr>
+                <tr>
+                    <td style="padding-left:150px">Mob: 7985264314</td>
+                    <td style="padding-left:160px">BCD rode, EFG colony</td>
+                </tr>
+                <tr>
+                    <td style="padding-left:150px">Email: onlinebank@gmail.com</td>
+                    <td style="padding-left:160px">GHI Block,</td>
+                </tr>
+                <tr>
+                    <td style="opacity: 0">y</td>
+                    <td style="padding-left:160px">PIN: 859623</td>
+                </tr>
+                <tr>
+                    <td style="opacity: 0">x</td>
+                    <td style="padding-left:160px">HIJK ,India</td>
+                </tr>
+            </table>
+        </div>
+        <div class="lower2">
+            <h5> Copyright © 2019 E-banking </h5>
+        </div>
+    </body>
+
+</html>

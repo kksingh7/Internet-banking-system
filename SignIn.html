@@ -1,0 +1,171 @@
+<html>
+<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+	<title>
+		Sign in
+	</title>
+	<style>
+		section{
+	display:flex;
+	flex-direction:col;
+	height:100%;
+}
+
+.column1{
+	text-align:center;
+	width:25%;
+	background-color:#060064;
+
+}
+
+.column2{
+	width:75%;
+	text-align:center;
+	
+}
+
+#coloured{
+	color:white;
+	position: relative;
+	top: 50%;
+	justify-content:center;	
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	
+}
+
+#white{
+	color:#060064;
+	position: relative;
+	top: 50%;
+	justify-content:center;	
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	
+}
+
+.colouredbutton{
+	background-color:#00000000;
+	border-radius:16px;
+	border-color:white;
+	border-width:2px;
+	padding:10px 50px 10px 50px;
+	color:white;
+}
+
+#whiteButton{
+	background-color:#060064;
+	border-radius:16px;
+	border-color:white;
+	border-width:2px;
+	padding:10px 50px 10px 50px;
+	color:white;
+	
+}
+	</style>
+
+<script>
+	var regx = /^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,20})(.[a-z]{2,8})?$/;
+
+	function setCookie(cname, cvalue, exdays) {
+    	var d = new Date();
+   		d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    	var expires = "expires=" + d.toUTCString();
+    	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+	}
+
+	function getCookie(cname) {
+   	 	var name = cname + "=";
+    	var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+	}
+
+	function verify() {
+			var password = document.getElementById("password").value;
+			var email = document.getElementById("email").value;
+			if (password.size == 0 || email.length == 0) {
+				alert("Please enter all details correctly!");
+			} else if (!regx.test(email)) {
+				alert("Please enter correct email!");
+			} else {
+				signin();
+			}
+		}
+
+		function signin() {
+			var email = document.getElementById("email").value;
+			var Password = document.getElementById("password").value;
+
+			$.post("http://localhost:8081", "SI " + Password + " " + email,
+				function (result) {
+
+					var messageString = result.toString().split(" ");
+					var requestType = messageString[0];
+					var accountno = messageString[1];
+            		var username = messageString[2];
+            		var amount = messageString[3];
+
+					if (requestType == "invalidcredential") {
+						alert("Please enter correct username & password!");
+					} else if (requestType == "unsuccesful") {
+						alert("Something went wrong. Please try again.");
+					} else if (requestType == "successful") {
+						alert("Logged in!");
+						setCookie("accountno", accountno);
+						console.log(accountno);
+						setCookie("username", username);
+						setCookie("amount", amount);
+
+						window.location.href = "profile";
+					}else{
+						 alert(result);
+					}
+				}, 'text').done(() => {
+				alert("request done!")
+		});
+	}
+	
+	function signup(){
+    	window.location.href = "signup";
+	}
+</script>
+
+
+</head>
+<section >
+	
+	<div class="column2"style="background-color:#ffffff">
+		<div id="white">
+			<h1>Sign In</h1><br>
+			<img src="https://i.ibb.co/2yHwRKg/fb.png">
+			<img src="https://i.ibb.co/KV23QM7/google.png">
+			<img src="https://i.ibb.co/G2J5c5B/linkedin.png"><br>
+			<p>or use your emailfor registration</p><br>
+			Enter email <input type="email" style="margin-left:25;" id="email"></input><br><br>
+			Enter password <input type="password" id="password"></input><br><br><br>
+			<button id="whitebutton" onclick = "verify()">Sign In</button>
+		</div>
+	</div>
+	
+	<div class="column1" style="margin:0 0 0 0;padding:0 10 0 10" >
+	
+		<div id="coloured">
+				<h1 id="welcome">To create account</h1>
+				<p>Enter your personal details and start using internet banking facilities.<p><br><br>
+				<button id ="sign" class="colouredbutton" onclick = "signup()">Sign Up</button>
+		</div>
+	</div>
+</section>
+</html>
